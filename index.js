@@ -7,13 +7,13 @@ import activitiesRoutes from './routes/activities.js';
 
 const app = express();
 
-app.use('/activities', activitiesRoutes);
-
 app.use(bodyParser.json({limit:"30mb", extended: true }));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true }));
 app.use(cors());
 
-const CONNECTION_URL = 'mongodb+srv://Haben:<password>@cluster0.2gpsy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+app.use('/activities', activitiesRoutes);
+
+const CONNECTION_URL = 'mongodb+srv://Haben:2OHyqMRaTKng1RjT@cluster0.2gpsy.mongodb.net/cluster0?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL)
