@@ -14,6 +14,6 @@ const activitiesSchema = mongoose.Schema({
     }
 });
 
-const ActivitiyMessage = mongoose.model('ActivitiyMessage', activitiesSchema);
+const ActivityMessage = mongoose.model('ActivitiyMessage', activitiesSchema);
 
-export default ActivitiyMessage;
+export default ActivityMessage;
