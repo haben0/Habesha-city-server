@@ -13,7 +13,9 @@ export const getActivities = async (req, res) => {
 
 export const getUpcomingActivities = async (req, res) => {
     try {
-        const activitiesMessages = await ActivityMessage.find();
+        const activitiesMessages = await ActivityMessage.find({"eventDate" : {
+            "$gte" : Date.now()
+        }});
 
         res.status(200).json(activitiesMessages);
     } catch (error) {
@@ -23,7 +25,9 @@ export const getUpcomingActivities = async (req, res) => {
 
 export const getPreviousActivities = async (req, res) => {
     try {
-        const activitiesMessages = await ActivityMessage.find();
+        const activitiesMessages = await ActivityMessage.find({"eventDate" : {
+            "$lte" : Date.now()
+        }});
 
         res.status(200).json(activitiesMessages);
     } catch (error) {
