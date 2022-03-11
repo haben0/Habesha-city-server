@@ -32,10 +32,12 @@ export const getPreviousActivities = async (req, res) => {
 }
 
 export const createActivity = async (req, res) => {
-    const {title, eventDate, location, selectedFile, description, tags} = req.body;
-    const newActivity = new ActivityMessage({title, eventDate, location, selectedFile, description, tags}); 
+    const {title, eventDate, location, selectedFile,shortDescription, description, tags} = req.body;
+    
+    const newActivity = new ActivityMessage({title, eventDate, location, selectedFile, shortDescription, description, tags}); 
    
     try {
+        console.log(title);
         await newActivity.save();
 
         res.status(201).json(newActivity);        

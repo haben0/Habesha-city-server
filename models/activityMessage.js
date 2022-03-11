@@ -4,6 +4,7 @@ const activitiesSchema = mongoose.Schema({
     title: String,
     eventDate: Date,    
     location: String,
+    shortDescription: String,
     description: String,
     selectedFile: String,
     tags: [String],
